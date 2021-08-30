@@ -1,0 +1,275 @@
+// ГЛОБАЛЬНЫЕ ТЕГИ
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: rgba($color: $color-second, $alpha: 0.9);
+  color: $white;
+}
+
+html {
+  font-size: $font-basic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: $font-size;
+  font-family: $font-family;
+  line-height: $line-height;
+  color: $color-text;
+  background-color: $color-background;
+  min-width: 320px;
+}
+
+// ТИПОГРАФИКА
+
+h1 {
+  @include font-size('h1');
+
+  color: $color-text;
+  line-height: 1.25em;
+  font-weight: $font-bold;
+}
+
+h2 {
+  @include font-size('h2');
+
+  line-height: 1.3em;
+  color: $color-text;
+  font-weight: $font-bold;
+}
+
+h3 {
+  @include font-size('h3');
+
+  color: $color-text;
+  line-height: 1.5em;
+  font-weight: $font-bold;
+}
+
+h4 {
+  @include font-size('h4');
+
+  color: $color-text;
+  line-height: 1.5em;
+  font-weight: $font-bold;
+}
+
+h5 {
+  @include font-size('h5');
+
+  color: $color-text;
+  line-height: 1.5em;
+  font-weight: $font-bold;
+}
+
+h6 {
+  @include font-size('h6');
+
+  color: $color-text;
+  line-height: 1.5em;
+  font-weight: $font-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+p {
+  @include font-size('p');
+
+  line-height: 165%;
+  color: $color-text;
+}
+
+.secondary-text {
+  line-height: 1.5em;
+  color: $color-text;
+}
+
+.mini-text {
+  line-height: $line-height;
+  color: $color-text;
+}
+
+a {
+  font-weight: 400;
+  font-family: $font-family;
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $link-active-color;
+  }
+
+  &:focus {
+    color: $link-focus-color;
+  }
+}
+
+button {
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  font-size: em($font-basic);
+  font-family: $font-family;
+  line-height: $line-height;
+  color: $color-text;
+  text-align: center;
+  border-radius: 4px;
+
+  &:focus {
+    cursor: pointer;
+  }
+
+  span {
+    width: 100%;
+  }
+}
+
+ul {
+  @include list-normalize;
+
+  li {
+    @include list-li-normalize;
+  }
+}
+
+ol {
+  list-style: decimal;
+}
+
+// ФОРМЫ
+
+input,
+textarea {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  padding: 0;
+  -webkit-padding-start: 0;
+  overflow: hidden;
+}
+
+input::placeholder,
+input[placeholder],
+input::-moz-placeholder,
+input:-moz-placeholder,
+input:-ms-input-placeholder,
+input::-webkit-input-placeholder,
+textarea[placeholder],
+textarea::-moz-placeholder,
+textarea:-moz-placeholder,
+textarea:-ms-input-placeholder,
+textarea::-webkit-input-placeholder {
+  @include font-size('form');
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.4em;
+  color: $color-text;
+}
+
+// input::-internal-autofill-previewed,
+// input::-internal-autofill-selected,
+// textarea::-internal-autofill-previewed,
+// textarea::-internal-autofill-selected,
+// select::-internal-autofill-previewed,
+// select::-internal-autofill-selected,
+// input::-webkit-internal-autofill-selected,
+// input::-webkit-internal-autofill-selected:hover,
+// input::-webkit-internal-autofill-selected:focus,
+// input::-webkit-internal-autofill-selected:active {
+//   background-color: $trs !important;
+// }
+
+// @-webkit-keyframes autofill {
+//   to {
+//     color: $white;
+//     background: $trs;
+//   }
+// }
+
+// .pointerEventsNone {
+//   pointer-events: none;
+// }
+
+// input:-webkit-autofill {
+//   -webkit-animation-name: autofill;
+//   -webkit-animation-fill-mode: both;
+// }
+
+// input:-webkit-autofill {
+//   box-shadow: inset 0 0 0 1000px $trs;
+// }
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   -webkit-box-shadow: 0 0 0 30px $trs inset !important;
+// }
+
+// input::-webkit-autofill {
+//   -webkit-text-fill-color: $trs !important; /* цвет текста */
+//   color: $white !important; /* цвет текста */
+// }
+
+// input::-webkit-contacts-auto-fill-button {
+//   visibility: hidden;
+//   display: none !important;
+//   pointer-events: none;
+//   position: absolute;
+//   right: 0;
+// }
+
+
+// ТАБЛИЦЫ
+// сброс и общая настройка
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+thead {
+
+}
+
+tbody {
+
+}
+
+tfoot {
+
+}
+
+tr {
+
+}
+
+td {
+  font-weight: $font-regular;
+}
+
+th {
+  font-weight: $font-regular;
+  text-align: left;
+}

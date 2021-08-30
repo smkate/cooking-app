@@ -1,0 +1,25 @@
+{% extends '../assets/layout/base.twig' %}
+
+{% block body %}
+
+
+	{# {% set title = 'Главная - home' %}
+	{% set meta_d = 'Описание' %}
+	{% set theme_color = '#FFFFFF' %} #}
+
+	{% include '../components/header/header.twig' %}
+
+	
+	<main class="container">
+		{% include '../components/search/search.twig' %}
+		{% include '../components/recipes-list/recipes-list.twig' %}
+	</main>
+
+	{% include '../components/footer/footer.twig' %}
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

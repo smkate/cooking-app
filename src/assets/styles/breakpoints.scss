@@ -1,0 +1,41 @@
+//СИНТАКСИС МЕДИА ЗАПРОСОВ
+//
+//@media #{$tablet} { ... }
+//@media #{$tablet-only} { ... }
+//@media #{$desktop} { ... }
+//@media #{$desktop-only} { ... }
+
+$screen: "only screen";
+
+$mobile: "#{$screen}";
+$mobile-only: "#{$screen} and (max-width: #{map-get($breakpoints, 'tablet')}px)";
+
+$tablet: "#{$screen} and (min-width:#{map-get($breakpoints, 'tablet')}px)";
+$tablet-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'tablet')}px) and (max-width:#{map-get($breakpoints, 'tablet-landscape') - 1}px)";
+
+$tablet-landscape: "#{$screen} and (min-width:#{map-get($breakpoints, 'tablet-landscape') }px)";
+$tablet-landscape-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'tablet-landscape')}) and (max-width:#{map-get($breakpoints, 'desktop') - 1}px)";
+
+$desktop: "#{$screen} and (min-width:#{map-get($breakpoints, 'desktop')}px)";
+$desktop-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'desktop')}px) and (max-width:#{map-get($breakpoints, 'desktop-wide') - 1}px)";
+
+$desktop-wide: "#{$screen} and (min-width:#{map-get($breakpoints, 'desktop-wide')}px)";
+$desktop-wide-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'desktop-wide')}px) and (max-width:#{map-get($breakpoints, 'desktop-wide') - 1}px)";
+
+$fullhd: "#{$screen} and (min-width:#{map-get($breakpoints, 'fullhd')}px)";
+$fullhd-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'fullhd')}px) and (max-width:#{map-get($breakpoints, 'ultra') - 1}px)";
+
+$ultra: "#{$screen} and (min-width:#{map-get($breakpoints, 'ultra')}px)";
+$ultra-only: "#{$screen} and (min-width:#{map-get($breakpoints, 'ultra')}px) and (max-width: 10000px)";
+
+
+// breakpoints для генерации колонок и размеров шрифтов
+$breakpoints-list: (
+  'mobile':           $mobile,
+  'tablet':           $tablet,
+  'tablet-landscape': $tablet-landscape,
+  'desktop':          $desktop,
+  'desktop-wide':     $desktop-wide,
+  'fullhd':           $fullhd,
+  'ultra':            $ultra
+);

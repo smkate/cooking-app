@@ -1,0 +1,50 @@
+// Вставка шрифтов
+
+@include font-face($font-name, 'open-sans-400', $font-regular, normal, woff2 woff ttf);
+@include font-face($font-name, 'open-sans-400italic', $font-regular, italic, woff2 woff ttf);
+@include font-face($font-name, 'open-sans-700', $font-bold, normal, woff2 woff ttf);
+@include font-face($font-second-name, 'pt-sans-400', $font-second-regular, normal, woff2 woff ttf);
+@include font-face($font-second-name, 'pt-sans-700', $font-second-bold, normal, woff2 woff ttf);
+
+
+// Размеры шрифтов заданы в виде массива списков
+// Каждый столбец это значение для брейкопоинта в пикеселях
+//$font-sizes: (
+//  // $mobile | $tablet | $tablet-landscape | $desktop | $desktop-wide | $fullhd | $ultra
+//  h1:     (30, 30, 40, 54, 54, 72, 95),
+//  h2:     (26, 26, 32, 44, 44, 44, 44),
+//  h3:     (20, 20, 22, 24, 24, 32, 42),
+//  h4:     (18, 18, 20, 22, 22, 26, 32),
+//  h5:     (16, 16, 18, 20, 20, 24, 32),
+//  h6:     (14, 16, 16, 18, 20, 22, 30),
+//  p:      (16, 16, 16, 18, 18, 20, 30),
+//  p2:     (14, 14, 16, 16, 16, 18, 20),
+//  small:  (12, 12, 14, 14, 14, 16, 18),
+//  form:   (16, 16, 16, 18, 18, 20, 30)
+//);
+
+
+// breakpoints для генерации размеров шрифтов
+
+$line-heights-amount: length(map-get($font-sizes, h1));
+
+// МИКСИНЫ
+// Генерирует font-size и line-height для брекпоинта
+@mixin generateFontSize($font-size, $i) {
+  font-size: #{nth(nth(map-get($font-sizes, $font-size), $i) / 10, 1)}rem;
+}
+
+// Создает всю струтктуру размеров шрифта со всеми брейкпоинтами
+@mixin font-size($font-size) {
+  $i: 0;
+  @each $breakpoint-name, $breakpoint-value in $breakpoints-list {
+    $i: $i + 1;
+    @if $breakpoint-name == 'mobile' {
+      @include generateFontSize($font-size, $i);
+    } @else {
+        @media #{$breakpoint-value} {
+          @include generateFontSize($font-size, $i);
+       }
+    }
+  }
+}

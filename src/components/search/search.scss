@@ -1,0 +1,46 @@
+.search-recipe {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 60px;
+}
+
+.search-recipe__counter p {
+	color: #152930;
+	font-weight: 700;
+	padding-left: 25px;
+	position: relative;
+
+	&::before {
+		content: url(../../img/document-icon.svg);
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+	}
+}
+
+.search-recipe__input {
+	width: 70%;
+
+	&-body {
+		width: 100%;
+		border: none;
+		border-radius: 86px;
+		background-color: #F1F1F1;
+		padding: 18px 29px;
+		position: relative;
+
+		&::before {
+			content: url(../../img/search-icon.svg);
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			z-index: 100;
+		}
+	}
+}
